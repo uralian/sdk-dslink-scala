@@ -3,7 +3,7 @@
 ![build status](https://travis-ci.com/uralian/sdk-dslink-scala.svg?branch=master)
 ![coverage status](https://coveralls.io/repos/github/uralian/sdk-dslink-scala/badge.svg?branch=master)
 
-DSLink Scala SDK
+DSLink SDK for Scala
 
 ## Features
 
@@ -13,6 +13,35 @@ DSLink Scala SDK
 - Exposes DSA API through Reactive Streams paradigm.
 - Implements fluent Scala layer to facilitate operations with DSA artifacts.
 - Recognizes all existing Node API data types.
+
+## Essential Information
+
+### License
+
+The license is Apache 2.0, see [LICENSE](LICENSE).
+
+### Binary Releases
+
+You can find published releases on Maven Central.
+
+    <dependency>
+        <groupId>com.uralian</groupId>
+        <artifactId>sdk-dslink-scala_2.12</artifactId>
+        <version>0.5.0</version>
+    </dependency>
+
+sbt dependency:
+
+    libraryDependencies += "com.uralian" %% "sdk-dslink-scala_2.12" % "0.5.0"
+
+Gradle dependency:
+
+	compile group: 'com.uralian', name: 'sdk-dslink-scala_2.12', version: '0.5.0'
+
+### API Docs
+
+The complete Scaladoc bundle is available online
+at [github.io](http://uralian.github.io/sdk-dslink-scala/latest/api/).
 
 ## Usage
 
