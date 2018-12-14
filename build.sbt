@@ -1,7 +1,7 @@
 name := "sdk-dslink-scala"
 organization := "com.uralian"
 
-version := "0.5.0"
+version := "0.6.0-SNAPSHOT"
 
 scalaVersion := "2.12.7"
 crossScalaVersions := Seq("2.10.5", "2.11.7", "2.12.7")
