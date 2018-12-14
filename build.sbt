@@ -4,7 +4,6 @@ organization := "com.uralian"
 version := "0.6.0-SNAPSHOT"
 
 scalaVersion := "2.12.7"
-crossScalaVersions := Seq("2.11.7", "2.12.7")
 
 scalacOptions ++= Seq(
   "-feature",
