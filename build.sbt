@@ -16,6 +16,8 @@ scalacOptions ++= Seq(
   "-encoding", "UTF-8"
 )
 
+scalacOptions in (Compile, doc) ++= Seq("-no-link-warnings")
+
 // scoverage options
 coverageExcludedPackages := "com\\.uralian\\.dsa\\.examples\\.*"
 coverageMinimum := 80
