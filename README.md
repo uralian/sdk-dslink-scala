@@ -27,16 +27,16 @@ You can find published releases on Maven Central.
     <dependency>
         <groupId>com.uralian</groupId>
         <artifactId>sdk-dslink-scala_2.12</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </dependency>
 
 sbt dependency:
 
-    libraryDependencies += "com.uralian" %% "sdk-dslink-scala_2.12" % "0.5.0"
+    libraryDependencies += "com.uralian" %% "sdk-dslink-scala_2.12" % "0.6.0"
 
 Gradle dependency:
 
-	compile group: 'com.uralian', name: 'sdk-dslink-scala_2.12', version: '0.5.0'
+	compile group: 'com.uralian', name: 'sdk-dslink-scala_2.12', version: '0.6.0'
 
 ### API Docs
 

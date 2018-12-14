@@ -1,7 +1,7 @@
 name := "sdk-dslink-scala"
 organization := "com.uralian"
 
-version := "0.6.0-SNAPSHOT"
+version := "0.6.0"
 
 scalaVersion := "2.12.7"
 
