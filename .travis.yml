@@ -22,6 +22,8 @@ before_cache:
 - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
 - find $HOME/.sbt        -name "*.lock"               -print -delete
 
+script: "sbt clean coverage test"
+
 install: "/bin/true"
 
 env:
@@ -33,5 +35,4 @@ before_install:
 - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in ci/pubring.gpg.enc -out local.pubring.gpg -d
 - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in ci/credentials.sbt.enc -out local.credentials.sbt -d
 
-after_success:
-- sbt +publishSigned
+after_success: "sbt coverageReport coveralls publishSigned"
