@@ -2,11 +2,13 @@ package com.uralian.dsa
 
 import org.dsa.iot.dslink.node.value.Value
 import org.dsa.iot.dslink.util.json.{JsonArray, JsonObject}
+import org.mockito.ArgumentCaptor
 import org.scalacheck.{Arbitrary, Gen}
 import org.scalatest._
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 
 import scala.collection.JavaConverters._
+import scala.reflect.ClassTag
 
 /**
   * Base trait for test specifications, which includes matchers and scala check helpers.
@@ -56,4 +58,13 @@ trait AbstractUnitSpec extends Suite
     val maps = scalarMaps map (new Value(_))
   }
 
+  /**
+    * Creates a mockito argument captor for the given class.
+    *
+    * @param tag
+    * @tparam T
+    * @return
+    */
+  def argumentCaptor[T](implicit tag: ClassTag[T]) =
+    ArgumentCaptor.forClass[T, T](tag.runtimeClass.asInstanceOf[Class[T]])
 }

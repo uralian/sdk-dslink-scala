@@ -23,8 +23,14 @@ scalacOptions ++= Seq(
 // scoverage options
 //coverageEnabled := true
 //coverageExcludedPackages := "org\\.dsa\\.iot\\.scala\\.netty\\.*;org\\.dsa\\.iot\\.scala\\.examples\\.*;.*DSAConnector;.*DSAEventListener"
+coverageExcludedPackages := "com\\.uralian\\.dsa\\.examples\\.*"
 coverageMinimum := 80
 coverageFailOnMinimum := true
+
+// test options
+configs(IntegrationTest)
+Defaults.itSettings
+IntegrationTest / fork := true
 
 // publishing options
 publishMavenStyle := true
@@ -36,27 +42,26 @@ publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 pomIncludeRepository := { _ => false }
-pomExtra := (
-  <url>https://github.com/uralian/sdk-dslink-scala</url>
-    <licenses>
-      <license>
-        <name>The Apache License, Version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        <distribution>repo</distribution>
-      </license>
-    </licenses>
-    <scm>
-      <url>scm:git:https://github.com/uralian/sdk-dslink-scala.git</url>
-      <connection>scm:git:git@github.com:uralian/sdk-dslink-scala.git</connection>
-    </scm>
-    <developers>
-      <developer>
-        <id>snark</id>
-        <name>Vlad Orzhekhovskiy</name>
-        <email>vlad@uralian.com</email>
-        <url>http://uralian.com</url>
-      </developer>
-    </developers>)
+pomExtra := <url>https://github.com/uralian/sdk-dslink-scala</url>
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>scm:git:https://github.com/uralian/sdk-dslink-scala.git</url>
+    <connection>scm:git:git@github.com:uralian/sdk-dslink-scala.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>snark</id>
+      <name>Vlad Orzhekhovskiy</name>
+      <email>vlad@uralian.com</email>
+      <url>http://uralian.com</url>
+    </developer>
+  </developers>
 
 pgpSecretRing := file("local.secring.gpg")
 
@@ -64,15 +69,15 @@ pgpPublicRing := file("local.pubring.gpg")
 
 // dependencies
 libraryDependencies ++= Seq(
-  //  "com.typesafe"        % "config"                  % "1.3.0",
+  "com.typesafe" % "config" % "1.3.2",
   //  "org.slf4j"           % "slf4j-log4j12"           % "1.6.1",
   "org.iot-dsa" % "dslink" % "0.18.3",
   //  		exclude("org.slf4j", "*")
   //  		exclude("org.iot-dsa", "logging")
   //  		exclude("io.netty", "*"),
   //  "io.netty"            % "netty-all"               % "4.0.33.Final",
-  //  "io.reactivex"       %% "rxscala"                 % "0.25.1",
-  "org.scalatest" %% "scalatest" % "3.0.5" % Test,
-  "org.scalacheck" %% "scalacheck" % "1.14.0" % Test,
-  "org.mockito" % "mockito-core" % "2.23.4" % Test
+  "io.reactivex" %% "rxscala" % "0.26.5",
+  "org.scalatest" %% "scalatest" % "3.0.5" % "it,test",
+  "org.scalacheck" %% "scalacheck" % "1.14.0" % "it,test",
+  "org.mockito" % "mockito-core" % "2.23.4" % "it,test"
 )

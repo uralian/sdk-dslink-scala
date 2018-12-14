@@ -160,4 +160,10 @@ class DSASpec extends AbstractUnitSpec with MockitoSugar {
     }
   }
 
+  "LinkMode" should {
+    "resolve enumeration Value as LinkMode" in {
+      LinkMode.valueToLinkMode(LinkMode.RESPONDER) shouldBe LinkMode.RESPONDER
+    }
+  }
+
 }

@@ -1,0 +1,46 @@
+{
+	"name":"sdk-dslink-scala-test",
+	"version":"0.1.0-SNAPSHOT",
+	"description":"Scala DSLink Test",
+	"license":"Apache",
+	"author":{
+		"name":"Vlad Orzhekhovskiy",
+		"email":"vlad@uralian.com"
+	},
+	"main":"bin/sdk-dslink-scala-test",
+	"repository":{
+		"type":"git",
+		"url":"https://github.com/uralian/sdk-dslink-scala"
+	},
+	"bugs":{
+		"url":"https://github.com/uralian/sdk-dslink-scala/issues"
+	},
+	"configs":{
+		"name":{
+			"type":"string",
+			"default":"sdk-scala"
+		},
+		"broker":{
+			"type":"url"
+		},
+		"token":{
+			"type":"string"
+		},
+		"nodes":{
+			"type":"path",
+			"default":"nodes.json"
+		},
+		"key":{
+			"type":"path",
+			"default":".key"
+		},
+		"log":{
+			"type":"enum",
+			"default":"info"
+		},
+		"handler_class":{
+			"type":"string",
+			"default":"com.uralian.dsa.examples.DummyDSLinkHandler"
+		}		
+	}
+}
