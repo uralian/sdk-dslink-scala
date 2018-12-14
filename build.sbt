@@ -4,7 +4,6 @@ organization := "com.uralian"
 version := "0.6.0-SNAPSHOT"
 
 scalaVersion := "2.12.7"
-crossScalaVersions := Seq("2.10.5", "2.11.7", "2.12.7")
 
 scalacOptions ++= Seq(
   "-feature",
@@ -17,12 +16,9 @@ scalacOptions ++= Seq(
   "-encoding", "UTF-8"
 )
 
-//scalacOptions in (Compile, doc) ++= Seq("-no-link-warnings")
-//run in Compile <<= Defaults.runTask(fullClasspath in Compile, mainClass in (Compile, run), runner in (Compile, run))
+scalacOptions in (Compile, doc) ++= Seq("-no-link-warnings")
 
 // scoverage options
-//coverageEnabled := true
-//coverageExcludedPackages := "org\\.dsa\\.iot\\.scala\\.netty\\.*;org\\.dsa\\.iot\\.scala\\.examples\\.*;.*DSAConnector;.*DSAEventListener"
 coverageExcludedPackages := "com\\.uralian\\.dsa\\.examples\\.*"
 coverageMinimum := 80
 coverageFailOnMinimum := true
@@ -70,12 +66,7 @@ pgpPublicRing := file("local.pubring.gpg")
 // dependencies
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.2",
-  //  "org.slf4j"           % "slf4j-log4j12"           % "1.6.1",
   "org.iot-dsa" % "dslink" % "0.18.3",
-  //  		exclude("org.slf4j", "*")
-  //  		exclude("org.iot-dsa", "logging")
-  //  		exclude("io.netty", "*"),
-  //  "io.netty"            % "netty-all"               % "4.0.33.Final",
   "io.reactivex" %% "rxscala" % "0.26.5",
   "org.scalatest" %% "scalatest" % "3.0.5" % "it,test",
   "org.scalacheck" %% "scalacheck" % "1.14.0" % "it,test",

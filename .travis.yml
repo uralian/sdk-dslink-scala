@@ -1,7 +1,7 @@
 language: scala
 
 sudo: false
-  
+
 scala:
 - 2.12.7
 
@@ -15,9 +15,23 @@ notifications:
 
 cache:
   directories:
-  - $HOME/.ivy2/cache
-  - $HOME/.sbt
-  
+  - "$HOME/.ivy2/cache"
+  - "$HOME/.sbt"
+
 before_cache:
-  - find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
-  - find $HOME/.sbt        -name "*.lock"               -print -delete
+- find $HOME/.ivy2/cache -name "ivydata-*.properties" -print -delete
+- find $HOME/.sbt        -name "*.lock"               -print -delete
+
+install: "/bin/true"
+
+env:
+  global:
+    secure: vLEsK2WIP3ioDAKw/G+FSgowlAS+Qmlf8pB00ucNnvOjeVm8DhN5sELYS/iIAlNOVb39xdIWwzs1GwVYoIjgYqcuHBL9ESJDicfeNo1CYHzCc0CU+N4KGk4x9lIgM1GXldO5tJ3YMY+tTe2EXtVdpAN+c4s/Dg0NjBFh9z7bgZtu5qhxDuegiahhbVC00d8U9mXKddCbrkyOY8whgvFupV39582GajnciH7GMuN7+O9OVpnE5mHBZIUGH8AMzWzBYXNH8nF6PUVvYUlkO2TRdU26gvOuassKpBM0bCSqXXw2i1e0UuISnvSKCoB1IczWfasQtDForGB7oS9kjhMHJwkxZCPhqxXbLsWQNOlwpXHAS7INHfbX1d6L/pvSwv4ylkqy+AklC3qcqBqZsRfvuksNcS7kGVWETxv83AUrCFQiRI9zyn1rXqrrEhDzE0wd6u3PyCDuvM+GDlj2eWplIFWD4G6hvBlx9S4wsGAz3a6Xm4QsSXIhGTaFU/cjmlXut3cYHTGupd6cu7GtFSRYbl0MqI5pnUGDRBSZ7sHA9sBq8CQ0fbprGnJEXxJv69xEvWJo3D+TBU7ZrB2c7ztMXPY3LkT6VNYExRlLcnvRgul7DiFJpPRr9U/BjMf86cZgbYBOa4hMcOuIIgSdjuhbag+gGEa9NSOiwIGrH7je3v8=
+
+before_install:
+- openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in ci/secring.gpg.enc -out local.secring.gpg -d
+- openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in ci/pubring.gpg.enc -out local.pubring.gpg -d
+- openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in ci/credentials.sbt.enc -out local.credentials.sbt -d
+
+after_success:
+- sbt +publishSigned
