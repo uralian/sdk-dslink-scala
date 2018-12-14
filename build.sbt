@@ -28,6 +28,16 @@ configs(IntegrationTest)
 Defaults.itSettings
 IntegrationTest / fork := true
 
+// documentation options
+enablePlugins(GhpagesPlugin)
+enablePlugins(SiteScaladocPlugin)
+git.remoteRepo := "https://github.com/uralian/sdk-dslink-scala.git"
+mappings in makeSite ++= Seq(
+  file("README.md") -> "README.md",
+  file("LICENSE") -> "LICENSE",
+  file("_config.yml") -> "_config.yml"
+)
+
 // publishing options
 publishMavenStyle := true
 publishTo := {
