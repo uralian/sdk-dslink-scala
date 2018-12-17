@@ -1,7 +1,7 @@
 name := "sdk-dslink-scala"
 organization := "com.uralian"
 
-version := "0.6.0"
+version := "0.6.1"
 
 scalaVersion := "2.12.7"
 
@@ -16,7 +16,7 @@ scalacOptions ++= Seq(
   "-encoding", "UTF-8"
 )
 
-scalacOptions in (Compile, doc) ++= Seq("-no-link-warnings")
+scalacOptions in(Compile, doc) ++= Seq("-no-link-warnings")
 
 // scoverage options
 coverageExcludedPackages := "com\\.uralian\\.dsa\\.examples\\.*"
@@ -48,26 +48,23 @@ publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 pomIncludeRepository := { _ => false }
-pomExtra := <url>https://github.com/uralian/sdk-dslink-scala</url>
-  <licenses>
-    <license>
-      <name>The Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <scm>
-    <url>scm:git:https://github.com/uralian/sdk-dslink-scala.git</url>
-    <connection>scm:git:git@github.com:uralian/sdk-dslink-scala.git</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>snark</id>
-      <name>Vlad Orzhekhovskiy</name>
-      <email>vlad@uralian.com</email>
-      <url>http://uralian.com</url>
-    </developer>
-  </developers>
+pomExtra :=
+  <url>https://github.com/uralian/sdk-dslink-scala</url>
+    <licenses>
+      <license>
+        <name>The Apache License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+    <developers>
+      <developer>
+        <id>snark</id>
+        <name>Vlad Orzhekhovskiy</name>
+        <email>vlad@uralian.com</email>
+        <url>http://uralian.com</url>
+      </developer>
+    </developers>
 
 pgpSecretRing := file("local.secring.gpg")
 
