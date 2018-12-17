@@ -56,10 +56,6 @@ pomExtra := <url>https://github.com/uralian/sdk-dslink-scala</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <scm>
-    <url>scm:git:https://github.com/uralian/sdk-dslink-scala.git</url>
-    <connection>scm:git:git@github.com:uralian/sdk-dslink-scala.git</connection>
-  </scm>
   <developers>
     <developer>
       <id>snark</id>
